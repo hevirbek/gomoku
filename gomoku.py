@@ -118,20 +118,20 @@ turn = 0
 print_board(board)
 while True:
     if turn % 2 == 0:
-        point = input("Galois, Nereye:")
+        point = input("First player:")
         x = int(point[0])
         y = letters.index(point[1])
         t = fill_spot(board, x, y, "M")
         if not t:
             if winM(board):
                 print_board(board)
-                print("Galois kazandı")
+                print("First Player wins!")
                 break
             turn += 1
         else:
             print("Orası dolu")
     else:
-        point = input("Nash, Nereye:")
+        point = input("Second player:")
         x = int(point[0])
         y = letters.index(point[1])
         print(x, y)
@@ -139,7 +139,7 @@ while True:
         if not t:
             if winT(board):
                 print_board(board)
-                print("Nash kazandı")
+                print("Second player wins!")
                 break
             turn += 1
         else:
@@ -148,5 +148,5 @@ while True:
     print_board(board)
 
     if board_end(board):
-        print("Oyun bitti, kazanan yok")
+        print("Game over, no winner")
         break
